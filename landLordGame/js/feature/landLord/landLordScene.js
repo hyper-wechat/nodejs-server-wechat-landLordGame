@@ -34,6 +34,7 @@ export default class LandLordScene extends ZMClass{
         this.userInfo && this.joinGame();//断线重连的逻辑保证
     }
     initUI() {
+      debugger
         let self = this;
         //头像
         let avatar = new ZMClass({x:20,y:20},{width:50, height:50});
@@ -88,10 +89,11 @@ export default class LandLordScene extends ZMClass{
             name: this.userInfo['nickName'],
             avatarUrl: this.userInfo['avatarUrl']
         };
-
+        debugger
         this.landLordManager.joinGameReq(object,self.handleJoinGameCallback.bind(self));
     }
     handleJoinGameCallback(joinGameRspObj){
+      debugger
         //console
         if(joinGameRspObj.rspHead && joinGameRspObj.rspHead.code){
             console.log("收到加入游戏错误码");

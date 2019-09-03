@@ -53,8 +53,8 @@ var server = http.createServer(function(req, res){
         var loginCode =  query.loginCode;
         var isSimulator = (query.isSimulator == "1" || query.isSimulator == 1);
         var params = {};
-        params.appid = 'wx3f1cea6346e2005e';
-        params.secret = "da9251f37e555144c5983ca1cb77571b";
+        params.appid = 'wx4864664b50f24629';
+        params.secret = "9da742da0ec4e1579a2a1cf830ed70ec";
         params.grant_type = "authorization_code";
         params.js_code = loginCode;
         //console.log("getOptions:", getOptions(params));

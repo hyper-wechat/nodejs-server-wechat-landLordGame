@@ -151,14 +151,29 @@ export default {
     promiseGetUserInfo(){
         let self = this;
         return new Promise((resolve) => {
-            if(self.userInfo) resolve(self.userInfo);
-            else
-            wx.getUserInfo({
-                success: res => {
-                    self.userInfo = res.userInfo;
-                    resolve(self.userInfo);
+          // debugger
+            if(self.userInfo) {
+              resolve(self.userInfo);
+            }
+            else{
+              wx.authorize({
+                scope: 'scope.userInfo',
+                success() {
+                  // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                  wx.getUserInfo({
+                    success: res => {
+                      debugger
+                      self.userInfo = res.userInfo;
+                      resolve(self.userInfo);
+                    },
+                    fail: res => {
+                      debugger
+                      console.log(res);
+                    }
+                  })
                 }
-            })
+              })
+            }
         });
     }
 }

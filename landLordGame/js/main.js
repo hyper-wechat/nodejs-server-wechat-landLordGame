@@ -49,7 +49,7 @@ export default class Main {
             })
         }).then(function(loginCode){
             return new Promise((resolve) => {
-                let url = 'https://www.lovelijing.top/login/?loginCode='+loginCode + "&isSimulator="+ (window.navigator.platform == 'devtools' ? "1" : "0");
+              let url = 'https://book.icolourful.cn/login/?loginCode='+loginCode + "&isSimulator="+ (window.navigator.platform == 'devtools' ? "1" : "0");
                 wx.request({
                     url: url,
                     header:{
@@ -76,8 +76,10 @@ export default class Main {
                     });
                 });
                 netService.connect({
-                    "url" : "wss://www.lovelijing.top",
-                    //"url" : "ws://192.168.0.50:30000",
+                    // "url" : "wss://www.lovelijing.top",
+                  // "url": "ws://127.0.0.1:30000",
+                  // "url": "ws://10.1.88.65:30000",
+                  "url": "ws://book.icolourful.cn:30000",
                     success : function(){console.log("连接建立成功");},
                     fail:function(){console.log("请求链接失败");},
                     complete:function(err){console.log("链接请求回来", err);}
